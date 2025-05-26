@@ -13,13 +13,17 @@ PYTHON
 مازال هذا الاصدار قيد التطويروالتحديث
 ارحب باستفساراتكم وتوجيهاتكم
 كود VB.NET 
+
+
+
 Imports jofotaratoolkit
 
 Public Class Form1
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Set Seller properties
-    End Sub
-	
+    End Sub	
+    
 	 Private Async Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
         '' Start the invoice process
         sendinvoic(1)  ''فاتورة دخل
