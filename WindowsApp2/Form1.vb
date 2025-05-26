@@ -1,164 +1,103 @@
-﻿Imports ist.jofotara
+Imports jofotaratoolkit
 
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Set Seller properties
     End Sub
-    Private Async Sub sendinvoic(k As Integer)
-        InvoiceTool1.Seller = New InvoiceTool.SellerInfo With {
-           .CommercialName = "Seller Inc.",
-           .IncomeSourceNumber = "12345",
-           .Address = "123 Main St",
-           .TaxNumber = "123456789",
-           .CountryCode = "1" ' JO
-       }
+	
+	 Private Async Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
+        '' Start the invoice process
+        sendinvoic(1)  ''فاتورة دخل
+    End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        sendinvoic(2)'فاتورة مبيعات
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        sendinvoic(3)'فاتورة خاصه
+    End Sub
+	
+    Private Async Sub sendinvoic(k As Integer)
+	''تعريف بيانات البائع
+        InvoiceTool1.Seller = New InvoiceTool.SellerInfo With {
+         .CommercialName = "Seller Inc.", 'الاسم كمافي السجل التجاري(الضريبي)
+         .IncomeSourceNumber = "12345",'تسلسل مصدر الدخل
+         .Address = "123 Main St",'العنوان
+         .TaxNumber = "123456789",'الرقم الضريبي
+         .CountryCode = "1" ' JO'رمز الوله وهو 1 دائما
+     }
         ' Set Buyer properties
+		'بيانات المشتري
         InvoiceTool1.Buyer = New InvoiceTool.BuyerInfo With {
-            .IsCashCustomer = True,
-            .Governorate = InvoiceTool.Governorate.Zarqa.ToString,
-            .PartyIdentification = New InvoiceTool.BuyerPartyIdentification With {
-            .CODE = "123456",
-            .KIND = InvoiceTool.Identification.NIN.ToString
+            .IsCashCustomer = True,'TRUE اذا كان البيع لعميل نقدي FALSE اذا كان البيع لعميل حقيقي
+            .Governorate = InvoiceTool.Governorate.Zarqa.ToString,'العنوان 
+            .PartyIdentification = New InvoiceTool.BuyerPartyIdentification With {'التعريف الشخصي
+            .CODE = "123456",'رقم المعرف للعميل
+            .KIND = InvoiceTool.Identification.NIN.ToString 'نوع المعرف للعميل
         }
         } ' Automatically sets TaxNumber to "10" and clears other fields
 
         ' Set Invoice properties
-        InvoiceTool1.Invoice = New InvoiceTool.InvoiceInfo With {
-            .InvoiceNumber = "INV001",
-            .InvoiceType = 0, '0 Local 1 Export  2 Development Area
+		'بيانات الفاتوره
+        InvoiceTool1.Invoice = New InvoiceTool.InvoiceInfo With {'بيانات الفاتوره
+            .InvoiceNumber = "INV001",'رقم الفاتورة
+            .InvoiceType = 0, '0 محليه 1 تصدير  2 تنمويه
             .PaymentMethod = 1, '1 Cash 2 Receivables 
-            .InvoiceCurrency = InvoiceTool.Currency.JOD.ToString,
-            .TaxCurrency = InvoiceTool.Currency.JOD.ToString,
-            .IncomeSourceType = k, ' 1  Income  2 General tax 3 Special tax
-            .TransactionType = 381, '388 New Invoice 381 AS BACK INVOICE  
-            .Notes = "Sample invoice",
-            .RETURN_INVOICE = New InvoiceTool.BillingReference With {
-            .INVOICE_NUMBER = "RET001",
-            .INVOICE_TOATAL = 100D,
-            .INVOICE_UUID = "UUID123"
+            .InvoiceCurrency = InvoiceTool.Currency.JOD.ToString, 'عمله الفاتورة
+            .TaxCurrency = InvoiceTool.Currency.JOD.ToString,'عمله الضريبه
+            .IncomeSourceType = k, ' 1  Income  2 General tax 3 Special tax 'نوع مصدر الدخل 
+            .TransactionType = 381, '388 New Invoice 381 AS BACK INVOICE  فاتورة ارجاع او جديده 
+            .Notes = "Sample invoice",'ملاحظات
+            .RETURN_INVOICE = New InvoiceTool.BillingReference With {'تعريف بيانت فاتورة الارجاع
+            .INVOICE_NUMBER = "RET001",'رقم الفاتورة المراد ارجاعها
+            .INVOICE_TOATAL = 100D,'قيمة الفاتورة المراد ارجاعها
+            .INVOICE_UUID = "UUID123"'الرمز الفريد المعاد من الضريبيه عند مزامنه الفاتوره المراد ارجاعها
         }
         }
 
-        ''في حال الارجاع
+        
 
 
         ' Set SetupInvoice properties
-        InvoiceTool1.PortalUrl = "https://portal.jofotara.gov.jo/ar/invoices/"
-        InvoiceTool1.UserKey = "key123"
-        InvoiceTool1.UserSecureKey = "secure123"
-        InvoiceTool1.DigitalSignaturePath = "C:\signature.pfx"
-        InvoiceTool1.AutoClose = True
-        InvoiceTool1.showresulttoast = True
+        InvoiceTool1.PortalUrl = "https://portal.jofotara.gov.jo/ar/invoices/"'مسار PORTAL
+        InvoiceTool1.UserKey = "804bb4f8-f745-4aD-b9dD-95cDDDDD6009"'اسم المستخدم المعرف في موقع الضريبيه
+        InvoiceTool1.UserSecureKey = "Gj5nS9ASDRadaVffz5VKB4v4wlVWyPhcJvrTD4NHtPk6ZAzKgbQdrVlgQOfASDD4x9HtOiRWkLQJ4aqgmMTG2xL7rI0WJfvFDgzF1wD5uHcfdU0idPw7dZ2s+H4nzaOJzETDDDL3JGDan0O58+iiSKAyeASDbmshoRmbmBPCukJrIZZHSQGXJJjjTv5rUASDdj7pFYk/ZoUNd6TFrXK1FsdbEQdHMAqYfELi3vGtK24J2gOhy+OJQ6mpTwHn10VoGKGSJLMNzk6vQ=="'المفتاح الشخصي للمستخدم
+        InvoiceTool1.DigitalSignaturePath = "C:\signature.pfx"'موقع ملف التوقيع الالكتروني (اختياري(
+        InvoiceTool1.AutoClose = True'اغلاق شاشه المزامنه تلقائيا في حال نجاح المزامنه
+        InvoiceTool1.showresulttoast = True'اظهار اشعار اسفل الشاشه بنتيجه المزامنه
         ' Add invoice items
+		'تعريف المواد
         Dim itemRow = InvoiceTool1.InvoiceItems.NewRow()
-        itemRow("ItemName") = "Product A"
-        itemRow("ItemNo") = "ISIC5-001"
-        itemRow("ItemPrice") = 100.0
-        itemRow("Discount") = 10.0
-        itemRow("VatTax") = 16.0
-        itemRow("SpecialTax") = 5
-        itemRow("ItemCount") = 2
-        itemRow("TaxTYPE") = "S"    ' O Z S
+        itemRow("ItemName") = "Product A"'اسم الماده
+        itemRow("ItemNo") = "ISIC5-001"'تصنيف الماده
+        itemRow("ItemPrice") = 100.0'سعر الوحده
+        itemRow("Discount") = 10.0'الخصم
+        itemRow("VatTax") = 16.0'الضريبه العامه
+        itemRow("SpecialTax") = 5'الضريبيه الخاصه
+        itemRow("ItemCount") = 2'عدد المواد
+        itemRow("TaxTYPE") = "S"  
+		'نوع الضريبه
+		' O لا يوجد ضريبيه 
+		'Z ضريبيه صفريه 
+		'S الضريبيه الخاصه او عليه ضريبه
         InvoiceTool1.InvoiceItems.Rows.Add(itemRow)
+        
+        InvoiceTool1.Initialize() 'ارسال البيانات التي تم تعريفها الى الاداه ليتم تهيئه الفاتوره
 
-
-
-        '' Add additional row 2
-        'Dim itemRow2 = InvoiceTool1.InvoiceItems.NewRow()
-        'itemRow2("ItemName") = "Product C"
-        'itemRow2("ItemNo") = "ISIC5-003"
-        'itemRow2("ItemPrice") = 80.0
-        'itemRow2("Discount") = 5.0
-        'itemRow2("VatTax") = 8.0
-        'itemRow2("SpecialTax") = 2
-        'itemRow2("ItemCount") = 5
-        'itemRow2("TaxTYPE") = "Z"    ' O Z S
-        'InvoiceTool1.InvoiceItems.Rows.Add(itemRow2)
-
-        '' Add additional row 3
-        'Dim itemRow3 = InvoiceTool1.InvoiceItems.NewRow()
-        'itemRow3("ItemName") = "Product D"
-        'itemRow3("ItemNo") = "ISIC5-004"
-        'itemRow3("ItemPrice") = 200.0
-        'itemRow3("Discount") = 20.0
-        'itemRow3("VatTax") = 16.0
-        'itemRow3("SpecialTax") = 7
-        'itemRow3("ItemCount") = 1
-        'itemRow3("TaxTYPE") = "S"    ' O Z S
-        'InvoiceTool1.InvoiceItems.Rows.Add(itemRow3)
-
-        '' Add additional row 4
-        'Dim itemRow4 = InvoiceTool1.InvoiceItems.NewRow()
-        'itemRow4("ItemName") = "Product E"
-        'itemRow4("ItemNo") = "ISIC5-005"
-        'itemRow4("ItemPrice") = 50.0
-        'itemRow4("Discount") = 0.0
-        'itemRow4("VatTax") = 0.0
-        'itemRow4("SpecialTax") = 0
-        'itemRow4("ItemCount") = 10
-        'itemRow4("TaxTYPE") = "Z"    ' O Z S
-        'InvoiceTool1.InvoiceItems.Rows.Add(itemRow4)
-
-        '' Add additional row 5
-        'Dim itemRow5 = InvoiceTool1.InvoiceItems.NewRow()
-        'itemRow5("ItemName") = "Product F"
-        'itemRow5("ItemNo") = "ISIC5-006"
-        'itemRow5("ItemPrice") = 120.0
-        'itemRow5("Discount") = 12.0
-        'itemRow5("VatTax") = 16.0
-        'itemRow5("SpecialTax") = 4
-        'itemRow5("ItemCount") = 4
-        'itemRow5("TaxTYPE") = "O"    ' O Z S
-        'InvoiceTool1.InvoiceItems.Rows.Add(itemRow5)
-
-
-        '        Dim itemRow = InvoiceTool1.InvoiceItems.NewRow()
-        '        itemRow("ItemName") = "Product A"
-        '        itemRow("ItemNo") = "ISIC5-001"
-        '        itemRow("ItemPrice") = 100.0
-        '        itemRow("Discount") = 10.0
-        '        itemRow("VatTax") = 16.0
-        '        itemRow("SpecialTax") = 5
-        '        itemRow("ItemCount") = 2
-        '        itemRow("TaxTYPE") = "S"    ' O Z S
-        '        InvoiceTool1.InvoiceItems.Rows.Add(itemRow)
-
-        '        ' Define sample data for 5 additional rows
-        '        Dim additionalItems = {
-        '    New With {.Name = "Product B", .No = "ISIC5-002", .Price = 150.0, .Discount = 15.0, .VatTax = 16.0, .SpecialTax = 3, .Count = 3, .TaxType = "O"},
-        '    New With {.Name = "Product C", .No = "ISIC5-003", .Price = 80.0, .Discount = 5.0, .VatTax = 8.0, .SpecialTax = 2, .Count = 5, .TaxType = "Z"},
-        '    New With {.Name = "Product D", .No = "ISIC5-004", .Price = 200.0, .Discount = 20.0, .VatTax = 16.0, .SpecialTax = 7, .Count = 1, .TaxType = "S"},
-        '    New With {.Name = "Product E", .No = "ISIC5-005", .Price = 50.0, .Discount = 0.0, .VatTax = 0.0, .SpecialTax = 0, .Count = 10, .TaxType = "Z"},
-        '    New With {.Name = "Product F", .No = "ISIC5-006", .Price = 120.0, .Discount = 12.0, .VatTax = 16.0, .SpecialTax = 4, .Count = 4, .TaxType = "O"}
-        '}
-
-        '        ' Add the additional rows using a loop
-        '        For Each item In additionalItems
-        '            Dim newRow = InvoiceTool1.InvoiceItems.NewRow()
-        '            newRow("ItemName") = item.Name
-        '            newRow("ItemNo") = item.No
-        '            newRow("ItemPrice") = item.Price
-        '            newRow("Discount") = item.Discount
-        '            newRow("VatTax") = item.VatTax
-        '            newRow("SpecialTax") = item.SpecialTax
-        '            newRow("ItemCount") = item.Count
-        '            newRow("TaxTYPE") = item.TaxType
-        '            InvoiceTool1.InvoiceItems.Rows.Add(newRow)
-        '        Next
-
-
-        ' Initialize
-        InvoiceTool1.Initialize()
-
-        Await InvoiceTool1.Start()
-        ' InvoiceTool1.ShowToast("تمت المزامنة بنجاح", 3000, False) ' Green toast for 3 seconds
-
-        ' Access output properties
-        '  MsgBox(InvoiceTool1.Status)
-        If InvoiceTool1.Status = "P" Then
-
-            '  MessageBox.Show($"UUID: {InvoiceTool1.UUID}{vbCrLf}Status: {InvoiceTool1.QRCode}")
+        Await InvoiceTool1.Start()'بدء المزامنه 
+		
+         'مخرجات الاداه 
+		 ' F NOT SEND
+		 ' P INVOICE SEND
+        If InvoiceTool1.Status = "P" Then 
+		' ٍيتم ارجاع القيم التاليه
+		'InvoiceTool1.UUID الرقم الفريد للفاتوره
+		'InvoiceTool1.QRCode الباركود الخاص بالفاتوره
+		'InvoiceTool1.Status الحاله
+		'InvoiceTool1.msg رساله
+		'InvoiceTool1.SIGNIT التوقيع الرقمي
+		   '  MessageBox.Show($"UUID: {InvoiceTool1.UUID}{vbCrLf}Status: {InvoiceTool1.QRCode}")
             Me.Text = "MSG=" & InvoiceTool1.Status
         Else
             '  InvoiceTool1.ShowToast("فشل في المزامنة", 3000, True) ' Red toast for 3 seconds
@@ -166,20 +105,5 @@ Public Class Form1
             Me.Text = InvoiceTool1.Status
         End If
     End Sub
-    Private Async Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
-        '' Start the invoice process
-        sendinvoic(1)
-
-
-
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        sendinvoic(2)
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        sendinvoic(3)
-    End Sub
+   
 End Class
- 
