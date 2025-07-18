@@ -1,0 +1,104 @@
+# ✅ Python version of SendInvoiceForm using SQLite and basic structure (no GUI).
+# Replace dummy paths and fill in API parts as needed.
+
+import sqlite3
+import uuid
+from dataclasses import dataclass
+from typing import List
+
+@dataclass
+class Seller:
+    id: str
+    tax_id: str
+    name: str
+    address: str
+
+@dataclass
+class Buyer:
+    id: int
+    tax_id: str
+    name: str
+    address: str
+    id_type: str
+
+@dataclass
+class Item:
+    item_id: str
+    quantity: str
+    subtotal: str
+    vat_tax: str
+    special_tax: str
+    unit_price: str
+    discount: str
+    description: str
+    isic4: str
+
+class SendInvoice:
+    def __init__(self, db_path: str, invoice_id: int):
+        self.db_path = db_path
+        self.invoice_id = invoice_id
+        self.conn = sqlite3.connect(self.db_path)
+        self.cursor = self.conn.cursor()
+
+        self.company_settings = {}
+        self.buyer = None
+        self.items: List[Item] = []
+
+    def load_company_settings(self):
+        self.cursor.execute("SELECT * FROM COM_SEETING WHERE ID = 1")
+        row = self.cursor.fetchone()
+        if row:
+            self.company_settings = {
+                'name': row[1],
+                'tel': row[2] or '',
+                'tax_no': row[3] or '',
+                'address': row[4] or '',
+                'key0': row[7] or '',
+                'key1': row[8] or '',
+                'tax_source': row[9] or ''
+            }
+
+    def load_invoice_details(self):
+        self.cursor.execute("SELECT * FROM INVOICES WHERE ID = ?", (self.invoice_id,))
+        invoice = self.cursor.fetchone()
+        if invoice:
+            customer_id = invoice[4]
+            self.cursor.execute("SELECT * FROM CUSTOMERS WHERE ID = ?", (customer_id,))
+            customer = self.cursor.fetchone()
+            if customer:
+                self.buyer = Buyer(
+                    id=customer[0],
+                    tax_id=customer[4] or '',
+                    name=customer[2],
+                    address=f"City {customer[5]}, Postal {customer[6] or ''}",
+                    id_type='NAT'
+                )
+
+                self.cursor.execute("SELECT * FROM ORDER_PRODUCTS WHERE INV_ID = ?", (self.invoice_id,))
+                for row in self.cursor.fetchall():
+                    item = Item(
+                        item_id=str(uuid.uuid4()),
+                        quantity=str(row[3]),
+                        subtotal=str(row[11]),
+                        vat_tax=str(row[9]),
+                        special_tax="0.00000",
+                        unit_price=str(row[4]),
+                        discount=str(row[5]),
+                        description=row[2],
+                        isic4=str(row[0])
+                    )
+                    self.items.append(item)
+
+    def close(self):
+        self.conn.close()
+
+# Usage example
+if __name__ == '__main__':
+    invoice = SendInvoice("E_INVOIC.db", invoice_id=1)
+    invoice.load_company_settings()
+    invoice.load_invoice_details()
+    print("Company:", invoice.company_settings)
+    print("Buyer:", invoice.buyer)
+    for item in invoice.items:
+        print("Item:", item)
+    invoice.close()
