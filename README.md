@@ -80,8 +80,8 @@ Public Class Form1
 
         ' Set SetupInvoice properties
         InvoiceTool1.PortalUrl = "https://portal.jofotara.gov.jo/ar/invoices/"'مسار PORTAL
-        InvoiceTool1.UserKey = "804bb4f8-f745-4aD-b9dD-95cDDDDD6009"'اسم المستخدم المعرف في موقع الضريبيه
-        InvoiceTool1.UserSecureKey = "Gj5nS9ASDRadaVffz5VKB4v4wlVWyPhcJvrTD4NHtPk6ZAzKgbQdrVlgQOfASDD4x9HtOiRWkLQJ4aqgmMTG2xL7rI0WJfvFDgzF1wD5uHcfdU0idPw7dZ2s+H4nzaOJzETDDDL3JGDan0O58+iiSKAyeASDbmshoRmbmBPCukJrIZZHSQGXJJjjTv5rUASDdj7pFYk/ZoUNd6TFrXK1FsdbEQdHMAqYfELi3vGtK24J2gOhy+OJQ6mpTwHn10VoGKGSJLMNzk6vQ=="'المفتاح الشخصي للمستخدم
+        InvoiceTool1.UserKey = "804bb4f8-f745-4SDDaD-b9dD-95cDDDDD6009"'اسم المستخدم المعرف في موقع الضريبيه
+        InvoiceTool1.UserSecureKey = "Gj5nS9ASDRadaVffz5VKB4v4wlVWyPhcJvrTD4NHtPk6ZAzKgbQdrVlgQOfASDD4x9HtOiRWkLQJ4DASDaqgmMTG2xL7rI0WJfvFDgzF1wD5uHcfdU0idPw7dZ2s+H4nzaOJzETDDDL3JGDan0O58+iiSKAyeASDbmshoRmbmBPCukJrIZZHSQGXJJjjTv5rUASDdj7pFYk/ZoUNd6TFrXK1FsdbEQdHMAqYfELi3vGtK24J2gOhy+OJQ6mpTwHn10VoGKGSJLMNzk6vQ=="'المفتاح الشخصي للمستخدم
         InvoiceTool1.DigitalSignaturePath = "C:\signature.pfx"'موقع ملف التوقيع الالكتروني (اختياري(
         InvoiceTool1.AutoClose = True'اغلاق شاشه المزامنه تلقائيا في حال نجاح المزامنه
         InvoiceTool1.showresulttoast = True'اظهار اشعار اسفل الشاشه بنتيجه المزامنه
