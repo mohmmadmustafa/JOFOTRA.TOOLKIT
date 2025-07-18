@@ -1,0 +1,78 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\vbnet\\project\\2025\\mini_pos_e_fwater\\mini_pos\\mini_pos.vbproj": {}
+  },
+  "projects": {
+    "E:\\vbnet\\project\\2025\\mini_pos_e_fwater\\mini_pos\\mini_pos.vbproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\vbnet\\project\\2025\\mini_pos_e_fwater\\mini_pos\\mini_pos.vbproj",
+        "projectName": "mini_pos",
+        "projectPath": "E:\\vbnet\\project\\2025\\mini_pos_e_fwater\\mini_pos\\mini_pos.vbproj",
+        "packagesPath": "C:\\Users\\Mohmmad Mustafa\\.nuget\\packages\\",
+        "outputPath": "E:\\vbnet\\project\\2025\\mini_pos_e_fwater\\mini_pos\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Mohmmad Mustafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 23.1\\Components\\System\\Components\\Packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "dependencies": {
+            "Microsoft.Data.Sqlite.Core": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "System.Data.SQLite": {
+              "target": "Package",
+              "version": "[1.0.119, )"
+            },
+            "ZXing.Net": {
+              "target": "Package",
+              "version": "[0.16.10, )"
+            },
+            "iTextSharp": {
+              "target": "Package",
+              "version": "[5.5.13.4, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

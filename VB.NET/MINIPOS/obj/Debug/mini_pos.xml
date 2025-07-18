@@ -1,0 +1,81 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+mini_pos
+</name>
+</assembly>
+<members>
+<member name="T:mini_pos.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:mini_pos.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:mini_pos.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:mini_pos.RegistrationManager.CheckAndInitializeRegistration(System.String)">
+ <summary>
+ التحقق من حالة التسجيل عند بدء البرنامج وإنشاء رقم تسجيل فريد إذا لزم الأمر
+ </summary>
+</member>
+<member name="M:mini_pos.RegistrationManager.GenerateUniqueRegNumber(System.String)">
+ <summary>
+ توليد رقم تسجيل فريد للمستخدم
+ </summary>
+</member>
+<member name="M:mini_pos.RegistrationManager.GenerateRegKey(System.String)">
+ <summary>
+ توليد مفتاح تسجيل بناءً على رقم التسجيل
+ </summary>
+</member>
+<member name="M:mini_pos.RegistrationManager.GetDeviceId">
+ <summary>
+ الحصول على معرف الجهاز (مثال: معرف اللوحة الأم)
+ </summary>
+</member>
+<member name="M:mini_pos.RegistrationManager.Encrypt(System.String)">
+ <summary>
+ تشفير النص باستخدام AES
+ </summary>
+</member>
+<member name="M:mini_pos.RegistrationManager.Decrypt(System.String)">
+ <summary>
+ فك تشفير النص
+ </summary>
+</member>
+<member name="M:mini_pos.RegistrationManager.GetRegistrationData">
+ <summary>
+ استرجاع بيانات التسجيل من الملف
+ </summary>
+</member>
+<member name="M:mini_pos.RegistrationManager.SaveRegCodeOnly(System.String,System.String)">
+ <summary>
+ حفظ مفتاح التسجيل فقط في الملف
+ </summary>
+</member>
+<member name="M:mini_pos.RegistrationManager.SaveRegistration(System.String,System.String)">
+ <summary>
+ حفظ بيانات التسجيل الكاملة في الملف
+ </summary>
+</member>
+<member name="M:mini_pos.RegistrationManager.VerifyRegistration(System.String,System.String)">
+ <summary>
+ التحقق من صحة التسجيل
+ </summary>
+</member>
+<member name="M:mini_pos.RegistrationManager.CreateDefaultRecord(System.String,System.String)">
+ <summary>
+ إنشاء سجل افتراضي
+ </summary>
+</member>
+</members>
+</doc>

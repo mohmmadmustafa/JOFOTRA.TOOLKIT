@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "1GvRHfEcEXqnd+YX78yrzAOXRzyTp/NQhH07xxxIFVEv0upGPsFmMdF4Appi6pc1QdypBpx/waB7zfPHHpjsFQ==",
+  "success": true,
+  "projectFilePath": "E:\\vbnet\\project\\2025\\mini_pos_e_fwater\\mini_pos\\mini_pos.vbproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Mohmmad Mustafa\\.nuget\\packages\\bouncycastle.cryptography\\2.4.0\\bouncycastle.cryptography.2.4.0.nupkg.sha512",
+    "C:\\Users\\Mohmmad Mustafa\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
+    "C:\\Users\\Mohmmad Mustafa\\.nuget\\packages\\itextsharp\\5.5.13.4\\itextsharp.5.5.13.4.nupkg.sha512",
+    "C:\\Users\\Mohmmad Mustafa\\.nuget\\packages\\microsoft.data.sqlite.core\\9.0.4\\microsoft.data.sqlite.core.9.0.4.nupkg.sha512",
+    "C:\\Users\\Mohmmad Mustafa\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Mohmmad Mustafa\\.nuget\\packages\\sqlitepclraw.core\\2.1.10\\sqlitepclraw.core.2.1.10.nupkg.sha512",
+    "C:\\Users\\Mohmmad Mustafa\\.nuget\\packages\\stub.system.data.sqlite.core.netframework\\1.0.119\\stub.system.data.sqlite.core.netframework.1.0.119.nupkg.sha512",
+    "C:\\Users\\Mohmmad Mustafa\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
+    "C:\\Users\\Mohmmad Mustafa\\.nuget\\packages\\system.data.sqlite\\1.0.119\\system.data.sqlite.1.0.119.nupkg.sha512",
+    "C:\\Users\\Mohmmad Mustafa\\.nuget\\packages\\system.data.sqlite.core\\1.0.119\\system.data.sqlite.core.1.0.119.nupkg.sha512",
+    "C:\\Users\\Mohmmad Mustafa\\.nuget\\packages\\system.data.sqlite.ef6\\1.0.119\\system.data.sqlite.ef6.1.0.119.nupkg.sha512",
+    "C:\\Users\\Mohmmad Mustafa\\.nuget\\packages\\system.data.sqlite.linq\\1.0.119\\system.data.sqlite.linq.1.0.119.nupkg.sha512",
+    "C:\\Users\\Mohmmad Mustafa\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\Mohmmad Mustafa\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
+    "C:\\Users\\Mohmmad Mustafa\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\Mohmmad Mustafa\\.nuget\\packages\\zxing.net\\0.16.10\\zxing.net.0.16.10.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="RichTextBox1.Text" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+         xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+         xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+         xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"&gt;
+    &lt;!-- معلومات الفاتورة العامة --&gt;
+    &lt;cbc:ProfileID&gt;reporting:1.0&lt;/cbc:ProfileID&gt;
+    &lt;cbc:ID&gt;INV-20250516145004&lt;/cbc:ID&gt;
+    &lt;cbc:UUID&gt;355ee59c-f4a4-40e1-bd78-a1ab0fc8eab0&lt;/cbc:UUID&gt;
+    &lt;cbc:IssueDate&gt;2025-05-16&lt;/cbc:IssueDate&gt;
+    &lt;cbc:IssueTime&gt;14:50:04&lt;/cbc:IssueTime&gt;
+    &lt;cbc:InvoiceTypeCode name="012"&gt;388&lt;/cbc:InvoiceTypeCode&gt;
+    &lt;cbc:DocumentCurrencyCode&gt;JOD&lt;/cbc:DocumentCurrencyCode&gt;
+    &lt;cbc:TaxCurrencyCode&gt;JOD&lt;/cbc:TaxCurrencyCode&gt;
+
+    &lt;!-- مرجع إضافي للوثيقة --&gt;
+    &lt;cac:AdditionalDocumentReference&gt;
+        &lt;cbc:ID&gt;ICV&lt;/cbc:ID&gt;
+        &lt;cbc:UUID&gt;355ee59c-f4a4-40e1-bd78-a1ab0fc8eab0&lt;/cbc:UUID&gt;
+    &lt;/cac:AdditionalDocumentReference&gt;
+
+    &lt;!-- معلومات البائع --&gt;
+    &lt;cac:AccountingSupplierParty&gt;
+        &lt;cac:Party&gt;
+            &lt;cac:PartyIdentification&gt;
+                &lt;cbc:ID&gt;14807394&lt;/cbc:ID&gt;
+            &lt;/cac:PartyIdentification&gt;
+            &lt;cac:PostalAddress&gt;
+                &lt;cbc:StreetName&gt;شارع الملكة رانيا&lt;/cbc:StreetName&gt;
+                &lt;cbc:CityName&gt;عمان&lt;/cbc:CityName&gt;
+                &lt;cbc:PostalZone&gt;11181&lt;/cbc:PostalZone&gt;
+                &lt;cac:Country&gt;
+                    &lt;cbc:IdentificationCode&gt;JO&lt;/cbc:IdentificationCode&gt;
+                &lt;/cac:Country&gt;
+            &lt;/cac:PostalAddress&gt;
+            &lt;cac:PartyTaxScheme&gt;
+                &lt;cbc:CompanyID&gt;10611649&lt;/cbc:CompanyID&gt;
+                &lt;cac:TaxScheme&gt;
+                    &lt;cbc:ID&gt;VAT&lt;/cbc:ID&gt;
+                &lt;/cac:TaxScheme&gt;
+            &lt;/cac:PartyTaxScheme&gt;
+            &lt;cac:PartyLegalEntity&gt;
+                &lt;cbc:RegistrationName&gt;مجد عوض محمود الجيزاوي&lt;/cbc:RegistrationName&gt;
+            &lt;/cac:PartyLegalEntity&gt;
+        &lt;/cac:Party&gt;
+    &lt;/cac:AccountingSupplierParty&gt;
+
+    &lt;!-- معلومات المشتري --&gt;
+    &lt;cac:AccountingCustomerParty&gt;
+        &lt;cac:Party&gt;
+            &lt;cac:PartyIdentification&gt;
+                &lt;cbc:ID schemeID="NIN"&gt;9999399&lt;/cbc:ID&gt;
+            &lt;/cac:PartyIdentification&gt;
+            &lt;cac:PostalAddress&gt;
+                &lt;cbc:StreetName&gt;غير معروف&lt;/cbc:StreetName&gt;
+                &lt;cac:Country&gt;
+                    &lt;cbc:IdentificationCode&gt;JO&lt;/cbc:IdentificationCode&gt;
+                &lt;/cac:Country&gt;
+            &lt;/cac:PostalAddress&gt;
+            &lt;cac:PartyTaxScheme&gt;
+                &lt;cbc:CompanyID&gt;1&lt;/cbc:CompanyID&gt;
+                &lt;cac:TaxScheme&gt;
+                    &lt;cbc:ID&gt;VAT&lt;/cbc:ID&gt;
+                &lt;/cac:TaxScheme&gt;
+            &lt;/cac:PartyTaxScheme&gt;
+            &lt;cac:PartyLegalEntity&gt;
+                &lt;cbc:RegistrationName&gt;عميل نقدي&lt;/cbc:RegistrationName&gt;
+            &lt;/cac:PartyLegalEntity&gt;
+        &lt;/cac:Party&gt;
+    &lt;/cac:AccountingCustomerParty&gt;
+    &lt;!-- وسيلة الدفع --&gt;
+    &lt;cac:PaymentMeans&gt;
+        &lt;cbc:PaymentMeansCode listID="UN/ECE 4461"&gt;10&lt;/cbc:PaymentMeansCode&gt;
+        &lt;cbc:PaymentID&gt;PAY-INV-20250516145004&lt;/cbc:PaymentID&gt;
+    &lt;/cac:PaymentMeans&gt;
+&lt;cac:AllowanceCharge&gt;
+                &lt;cbc:ChargeIndicator&gt;false&lt;/cbc:ChargeIndicator&gt;
+                &lt;cbc:AllowanceChargeReason&gt;discount&lt;/cbc:AllowanceChargeReason&gt;
+                &lt;cbc:Amount currencyID="JOD"&gt;0&lt;/cbc:Amount&gt;
+ &lt;/cac:AllowanceCharge&gt;
+    &lt;!-- إجمالي الضرائب على مستوى الفاتورة --&gt;
+    &lt;cac:TaxTotal&gt;
+        &lt;cbc:TaxAmount currencyID="JOD"&gt;0.00&lt;/cbc:TaxAmount&gt;
+     &lt;/cac:TaxTotal&gt;
+
+    &lt;!-- الإجماليات المالية --&gt;
+    &lt;cac:LegalMonetaryTotal&gt;
+        &lt;cbc:TaxExclusiveAmount currencyID="JOD"&gt;1.00&lt;/cbc:TaxExclusiveAmount&gt;
+        &lt;cbc:TaxInclusiveAmount currencyID="JOD"&gt;1.00&lt;/cbc:TaxInclusiveAmount&gt;
+        &lt;cbc:AllowanceTotalAmount currencyID="JOD"&gt;0.00&lt;/cbc:AllowanceTotalAmount&gt;
+        &lt;cbc:PayableAmount currencyID="JOD"&gt;1.00&lt;/cbc:PayableAmount&gt;
+    &lt;/cac:LegalMonetaryTotal&gt;
+
+    &lt;!-- بنود الفاتورة --&gt;
+    &lt;cac:InvoiceLine&gt;
+        &lt;cbc:ID&gt;1&lt;/cbc:ID&gt;
+        &lt;cbc:InvoicedQuantity unitCode="PCE"&gt;1&lt;/cbc:InvoicedQuantity&gt;
+        &lt;cbc:LineExtensionAmount currencyID="JOD"&gt;1.00&lt;/cbc:LineExtensionAmount&gt;
+        &lt;cac:TaxTotal&gt;
+            &lt;cbc:TaxAmount currencyID="JOD"&gt;0.00&lt;/cbc:TaxAmount&gt;
+&lt;cbc:RoundingAmount currencyID="JOD"&gt;1.000&lt;/cbc:RoundingAmount&gt;
+            &lt;cac:TaxSubtotal&gt;
+                 &lt;cbc:TaxAmount currencyID="JOD"&gt;0.00&lt;/cbc:TaxAmount&gt;
+                &lt;cac:TaxCategory&gt;
+                    &lt;cbc:ID schemeID="UN/ECE 5305"&gt;Z&lt;/cbc:ID&gt;
+                    &lt;cbc:Percent&gt;0.00&lt;/cbc:Percent&gt;
+                    &lt;cac:TaxScheme&gt;
+                        &lt;cbc:ID schemeID="UN/ECE 5153"&gt;VAT&lt;/cbc:ID&gt;
+                    &lt;/cac:TaxScheme&gt;
+                &lt;/cac:TaxCategory&gt;
+            &lt;/cac:TaxSubtotal&gt;
+&lt;/cac:TaxTotal&gt;
+
+            &lt;cac:Item&gt;
+            &lt;cbc:Name&gt;Meal Service&lt;/cbc:Name&gt;
+            &lt;cac:AdditionalItemProperty&gt;
+                &lt;cbc:Name&gt;ISIC4&lt;/cbc:Name&gt;
+                &lt;cbc:Value&gt;5610&lt;/cbc:Value&gt;
+            &lt;/cac:AdditionalItemProperty&gt;
+        &lt;/cac:Item&gt;
+        &lt;cac:Price&gt;
+            &lt;cbc:PriceAmount currencyID="JOD"&gt;1.00&lt;/cbc:PriceAmount&gt;
+            &lt;cac:AllowanceCharge&gt;
+                &lt;cbc:ChargeIndicator&gt;false&lt;/cbc:ChargeIndicator&gt;
+                &lt;cbc:AllowanceChargeReason&gt;DISCOUNT&lt;/cbc:AllowanceChargeReason&gt;
+                &lt;cbc:Amount currencyID="JOD"&gt;0.00&lt;/cbc:Amount&gt;
+            &lt;/cac:AllowanceCharge&gt;
+        &lt;/cac:Price&gt;
+    &lt;/cac:InvoiceLine&gt;
+&lt;/Invoice&gt;</value>
+  </data>
+</root>

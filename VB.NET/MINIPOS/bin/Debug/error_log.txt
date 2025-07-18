@@ -1,0 +1,33 @@
+[13/05/2025 02:08:45 م] XML Load Error: Name cannot begin with the ' ' character, hexadecimal value 0x20. Line 1, position 2140.
+[13/05/2025 02:10:54 م] XML Signing Error: Failed to sign XML: The system cannot find the file specified.
+
+[13/05/2025 02:14:37 م] XML Signing Error: Failed to sign XML: Invalid algorithm specified.
+
+[13/05/2025 02:16:00 م] Status Code: BadRequest, Response: {"EINV_RESULTS":{"status":"ERROR","INFO":[],"WARNINGS":[],"ERRORS":[{"type":"ERROR","status":"ERROR","EINV_CODE":"invoice-persist","EINV_CATEGORY":"Invoice","EINV_MESSAGE":"500 : \"{\"timestamp\":\"2025-05-13T11:14:17.580+00:00\",\"status\":500,\"error\":\"Internal Server Error\",\"path\":\"/ingestion/invoices\"}\""}]},"EINV_STATUS":"NOT_SUBMITTED","EINV_SINGED_INVOICE":null,"EINV_QR":null,"EINV_NUM":null,"EINV_INV_UUID":null}
+[13/05/2025 02:24:24 م] XML Signing Error: Failed to sign XML: Invalid algorithm specified.
+
+[13/05/2025 02:27:12 م] XML Signing Error: Failed to sign XML: The system cannot find the file specified.
+
+[13/05/2025 02:27:41 م] XML Signing Error: Failed to sign XML: Invalid algorithm specified.
+
+[13/05/2025 02:28:27 م] Status Code: BadRequest, Response: {"EINV_RESULTS":{"status":"ERROR","INFO":[],"WARNINGS":[],"ERRORS":[{"type":"ERROR","status":"ERROR","EINV_CODE":"XSD_INVALID","EINV_CATEGORY":"XSD validation","EINV_MESSAGE":"Schema validation failed; XML does not comply with UBL 2.1 standards per ISTD invoice regulations, ColumnNumber : 40, LineNumber : 1, message : Content is not allowed in prolog."}]},"EINV_STATUS":"NOT_SUBMITTED","EINV_SINGED_INVOICE":null,"EINV_QR":null,"EINV_NUM":null,"EINV_INV_UUID":null}
+[13/05/2025 02:29:26 م] XML Signing Error: Failed to sign XML: Invalid algorithm specified.
+
+[13/05/2025 02:32:43 م] XML Signing Error: Failed to sign XML: التحويل من السلسلة "RSA-PKCS1-KeyEx" إلى النوع 'Long' غير صالح.. StackTrace:    at Microsoft.VisualBasic.CompilerServices.Conversions.ToLong(String Value)
+   at mini_pos.Program.SignXml(XmlDocument doc) in E:\vbnet\project\2025\mini_pos_e_fwater\mini_pos\CLASS\Program.vb:line 159
+[13/05/2025 02:37:01 م] XML Signing Error: Failed to sign XML: The system cannot find the file specified.
+. StackTrace:    at System.Security.Cryptography.CryptographicException.ThrowCryptographicException(Int32 hr)
+   at System.Security.Cryptography.X509Certificates.X509Utils._QueryCertFileType(String fileName)
+   at System.Security.Cryptography.X509Certificates.X509Certificate.LoadCertificateFromFile(String fileName, Object password, X509KeyStorageFlags keyStorageFlags)
+   at System.Security.Cryptography.X509Certificates.X509Certificate2..ctor(String fileName, String password, X509KeyStorageFlags keyStorageFlags)
+   at mini_pos.Program.SignXml(XmlDocument doc) in E:\vbnet\project\2025\mini_pos_e_fwater\mini_pos\CLASS\Program.vb:line 155
+[13/05/2025 02:37:46 م] Certificate Key Algorithm: RSA-PKCS1-KeyEx, Public Key: System.Security.Cryptography.RSACryptoServiceProvider, Subject: E=MOM22JO@GMAIL.COM, O=SUPERNOVA, L=ZARQA, S=MOHMMAD MUSTAFA, C=JO, Issuer: E=MOM22JO@GMAIL.COM, O=SUPERNOVA, L=ZARQA, S=MOHMMAD MUSTAFA, C=JO
+[13/05/2025 02:37:46 م] XML Signing Error: Failed to sign XML: Invalid algorithm specified.
+. StackTrace:    at System.Security.Cryptography.CryptographicException.ThrowCryptographicException(Int32 hr)
+   at System.Security.Cryptography.Utils.SignValue(SafeKeyHandle hKey, Int32 keyNumber, Int32 calgKey, Int32 calgHash, Byte[] hash, Int32 cbHash, ObjectHandleOnStack retSignature)
+   at System.Security.Cryptography.Utils.SignValue(SafeKeyHandle hKey, Int32 keyNumber, Int32 calgKey, Int32 calgHash, Byte[] hash)
+   at System.Security.Cryptography.RSACryptoServiceProvider.SignHash(Byte[] rgbHash, Int32 calgHash)
+   at System.Security.Cryptography.RSAPKCS1SignatureFormatter.CreateSignature(Byte[] rgbHash)
+   at System.Security.Cryptography.AsymmetricSignatureFormatter.CreateSignature(HashAlgorithm hash)
+   at System.Security.Cryptography.Xml.SignedXml.ComputeSignature()
+   at mini_pos.Program.SignXml(XmlDocument doc) in E:\vbnet\project\2025\mini_pos_e_fwater\mini_pos\CLASS\Program.vb:line 198
