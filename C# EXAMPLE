@@ -1,0 +1,183 @@
+// 🔁 This is the C# equivalent of your VB.NET "send_invoice_form" class, rewritten for clarity and functionality.
+// Some external dependencies (like InvoiceTool1, jofotaratoolkit) are assumed to have equivalent C# libraries or need to be written.
+
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+public class SendInvoiceForm : Form
+{
+    private SQLiteConnection conn = new SQLiteConnection("Data Source=E_INVOIC.db;Version=3;");
+    private long O_ID;
+    private HttpClient client = new HttpClient();
+
+    private string companyName;
+    private string companyTel;
+    private string companyTaxNo;
+    private string companyAddress;
+    private string key0;
+    private string key1;
+    private string taxSourceNumber;
+
+    private int custId, eId, cuCity;
+    private string cName, cTel, cTaxCode, cPostcode;
+
+    private Itemsys[] items;
+
+    public SendInvoiceForm(long oid)
+    {
+        O_ID = oid;
+        InitializeComponent();
+    }
+
+    private void LoadCompanySettings()
+    {
+        try
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            string query = "SELECT * FROM COM_SEETING WHERE ID = 1";
+            using (var cmd = new SQLiteCommand(query, conn))
+            using (var reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    companyName = reader.GetString(1);
+                    companyTel = reader.IsDBNull(2) ? "" : reader.GetString(2);
+                    companyTaxNo = reader.IsDBNull(3) ? "" : reader.GetString(3);
+                    companyAddress = reader.IsDBNull(4) ? "---" : reader.GetString(4);
+                    key0 = reader.IsDBNull(7) ? "" : reader.GetString(7);
+                    key1 = reader.IsDBNull(8) ? "" : reader.GetString(8);
+                    taxSourceNumber = reader.IsDBNull(9) ? "" : reader.GetString(9);
+                }
+            }
+        }
+        finally
+        {
+            if (conn.State == ConnectionState.Open)
+                conn.Close();
+        }
+    }
+
+    private void LoadInvoiceDetails(int invoiceId)
+    {
+        try
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            List<Itemsys> itemsList = new List<Itemsys>();
+
+            string invoiceQuery = "SELECT * FROM INVOICES WHERE ID = @id";
+            using (var cmd = new SQLiteCommand(invoiceQuery, conn))
+            {
+                cmd.Parameters.AddWithValue("@id", invoiceId);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        int customerId = reader.GetInt32(4);
+
+                        string customerQuery = "SELECT * FROM CUSTOMERS WHERE ID = @customerId";
+                        using (var cmdCustomer = new SQLiteCommand(customerQuery, conn))
+                        {
+                            cmdCustomer.Parameters.AddWithValue("@customerId", customerId);
+
+                            using (var readerCustomer = cmdCustomer.ExecuteReader())
+                            {
+                                if (readerCustomer.Read())
+                                {
+                                    custId = readerCustomer.GetInt32(0);
+                                    eId = readerCustomer.GetInt32(1);
+                                    cName = readerCustomer.GetString(2);
+                                    cTel = readerCustomer.IsDBNull(3) ? "" : readerCustomer.GetString(3);
+                                    cTaxCode = readerCustomer.IsDBNull(4) ? "" : readerCustomer.GetString(4);
+                                    cuCity = readerCustomer.GetInt32(5);
+                                    cPostcode = readerCustomer.IsDBNull(6) ? "" : readerCustomer.GetString(6);
+
+                                    string productsQuery = "SELECT * FROM ORDER_PRODUCTS WHERE INV_ID = @invId";
+                                    using (var cmdProducts = new SQLiteCommand(productsQuery, conn))
+                                    {
+                                        cmdProducts.Parameters.AddWithValue("@invId", invoiceId);
+                                        using (var readerProducts = cmdProducts.ExecuteReader())
+                                        {
+                                            while (readerProducts.Read())
+                                            {
+                                                var newItem = new Itemsys(
+                                                    itemId: Guid.NewGuid().ToString(),
+                                                    quantity: readerProducts.GetInt32(3).ToString(),
+                                                    subtotal: readerProducts.GetDouble(11).ToString(),
+                                                    vatTax: readerProducts.GetDouble(9).ToString(),
+                                                    specialTax: "0.00000",
+                                                    unitPrice: readerProducts.GetDouble(4).ToString(),
+                                                    discount: readerProducts.GetDouble(5).ToString(),
+                                                    description: readerProducts.GetString(2),
+                                                    isic4: readerProducts.GetInt32(0).ToString()
+                                                );
+
+                                                itemsList.Add(newItem);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            items = itemsList.ToArray();
+        }
+        finally
+        {
+            if (conn.State == ConnectionState.Open)
+                conn.Close();
+        }
+    }
+
+    // NOTE: UI methods, InvoiceTool integration and Timer events would be added here like original code.
+    // ... (not shown for brevity)
+}
+
+public class Sellersys
+{
+    public string Id, TaxId, Name, Address;
+    public Sellersys(string id, string taxId, string name, string address)
+    {
+        Id = id; TaxId = taxId; Name = name; Address = address;
+    }
+}
+
+public class Buyersys
+{
+    public string Id, TaxId, Name, Address, IdType;
+    public Buyersys(string id, string taxId, string name, string address, string idType)
+    {
+        Id = id; TaxId = taxId; Name = name; Address = address; IdType = idType;
+    }
+}
+
+public class Itemsys
+{
+    public string ItemId, Quantity, Subtotal, VatTax, SpecialTax, UnitPrice, Discount, Description, Isic4;
+
+    public Itemsys(string itemId, string quantity, string subtotal, string vatTax, string specialTax, string unitPrice, string discount, string description, string isic4)
+    {
+        ItemId = itemId;
+        Quantity = quantity;
+        Subtotal = subtotal;
+        VatTax = vatTax;
+        SpecialTax = specialTax;
+        UnitPrice = unitPrice;
+        Discount = discount;
+        Description = description;
+        Isic4 = isic4;
+    }
+}
